@@ -1,3 +1,8 @@
+@font-face{
+    font-family: 'poor story';
+    src:url('/font/PoorStory-Regular.ttf')
+}
+
 main{
     width: 100vw;
     margin: auto;
@@ -14,6 +19,7 @@ body{
 
 h1{
     color:salmon;
+    font-family: 'poor story';
 }
 
 h2{
