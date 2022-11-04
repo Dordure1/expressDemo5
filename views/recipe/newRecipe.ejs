@@ -1,0 +1,28 @@
+<%- include('../shared/_header.ejs') %>
+
+<h1>New recipe</h1>
+
+<h2>Add a new recipe</h2>
+    <form method="post">
+        <div>
+            <label for="name">recipe name</label>
+            <input id="name" name="name" type="text" required>
+        </div>
+
+        <div>
+            <label for="origin">origin</label>
+            <input id="origin" name="origin" type="text">
+        </div>
+        <div>
+            <label for="time">time (in minutes)</label>
+            <input id="time" name="time" type="number">
+        </div>
+
+        <div>
+            <label for="description">description</label>
+            <textarea id="description" name="description"></textarea>
+        </div>
+        <button type="submit">Envoyer</button>
+    </form>
+
+<%- include('../shared/_footer.ejs') %>

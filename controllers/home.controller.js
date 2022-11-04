@@ -20,7 +20,16 @@ const homeController = {
     },
     contactPost: (req,res)=>{
         //// traiter les donnée du formulaire
-        res.sendstatus(501)
+        // console.log(req.body);
+        const {email, pseudo, message} = req.body
+        console.log(email);
+        res.render('home/response',{
+            name: !!pseudo? pseudo : email
+            //idem
+            // name: pseudo===''? pseudo : email
+            //idem 
+            // name:pseudo||email
+        })
     }
 }
 module.exports = homeController

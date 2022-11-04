@@ -1,0 +1,45 @@
+<%- include('../shared/_header.ejs') %>
+
+<h1>Page des recettes</h1>
+
+<img class="welcome" alt="mes recetts" src="/image/recetteMain.jpg">
+<a href="/recipe/newRecipe"> <button>New recipe</button></a>
+<br>
+<br>
+<br>
+<br>
+<h3>Our recipe:</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Origin</th>
+            <th>Preparation Time</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+            <% for (const recette of recipes) { %>
+                <tr>
+                    <td> <%= recette.name %> </td>
+                    <td> <%= recette.origin %> </td>
+                    <td> <%= recette.time %> </td>
+                    <td> <%= recette.description %> </td>
+                </tr>
+            <% }%>
+    </tbody>
+</table>
+
+
+
+<!-- <ul>
+    <% for (const recette of recipes) { %>
+        <li> <%= recette.name %> </li>
+        <li> <%= recette.origin %> </li>
+        <li> <%= recette.time %> </li>
+        <li> <%= recette.description %> </li>
+    <% }%>
+</ul> -->
+
+
+<%- include('../shared/_footer.ejs') %>

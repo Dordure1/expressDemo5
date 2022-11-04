@@ -2,14 +2,22 @@ require('dotenv-flow').config()
 
 /// récupération variable d'environement
 const {NODE_ENV , PORT} = process.env
+const exp = require('constants');
 const express = require('express');
 const router = require('./routers');
 
 const app = express()
 
-
+//////////////////////////////////////
 /// Configuration du serveur 
+
+// - fichier static
 app.use(express.static('public'))
+
+//- gestion des formulaires
+app.use(express.urlencoded({extended:true}))
+
+/////////////////////////////////////
 
 
 /// Config moteur de vue 
