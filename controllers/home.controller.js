@@ -9,10 +9,10 @@ const homeController = {
      */
 
     index : (req, res)=> { 
-        res.sendStatus(501)
+        res.render('home/index')
     },
     contact : (req, res)=> { 
-        res.sendStatus(501)
+        res.render('home/contact')
     }
 }
 module.exports = homeController

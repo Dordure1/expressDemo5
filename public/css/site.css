@@ -1,0 +1,26 @@
+main{
+    width: 100vw;
+    margin: auto;
+    min-height: 100vh;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+body{
+    height: 100%;
+    box-sizing: border-box;
+    margin: 5, auto;
+}
+
+h1{
+    color:salmon;
+}
+
+h2{
+    color:skyblue
+}
+
+img.welcome {
+    width: 12%;
+    
+}
