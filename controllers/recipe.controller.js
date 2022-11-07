@@ -1,16 +1,22 @@
 const recipesClass = require("../class/recipes")
 
-const recipes = []
+const recipeService = require("../services/recipe.service")
+
+/// pour exo avant mongo ///
+// ->  const recipes = []
 
 const recipeController =  {
-    index : (req,res)=> {
-        const count = recipes.length
+    index : async (req,res)=> {
+
+        const recipes = await recipeService.getAll()
+
         res.render('recipe/index',{recipes, count})
     },
     newRecipe: (req,res)=>{
         res.render('recipe/newRecipe',{error: undefined})
     },
-    newRecipePost: (req,res)=>{
+
+    newRecipePost: async (req,res)=>{
         const data =req.body
         console.log(data);
         
@@ -20,9 +26,12 @@ const recipeController =  {
 
 
         let newrecipe = new recipesClass(req.body.name,req.body.origin, req.body.time, req.body.description, req.body.ingredients)
-        recipes.push(newrecipe)
-        console.log(newrecipe);
-        console.log(recipes);
+        // recipes.push(newrecipe)
+
+        /// With mongo 
+        await recipeService.add(data)
+        //
+
         res.redirect('/recipe')  
     }
 }

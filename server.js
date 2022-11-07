@@ -4,6 +4,8 @@ require('dotenv-flow').config()
 const {NODE_ENV , PORT, URL_MONGODB} = process.env
 const exp = require('constants');
 const express = require('express');
+require('express-async-errors')
+
 const router = require('./routers');
 
 /// Connection à la db
@@ -13,10 +15,13 @@ database(URL_MONGODB)
     .then((db)=>{
         console.log('Mongo DB successfull');
 
-        const r = new Recipe({name : "Demo", ingredients : ["mayo"]})
-        r.save().then(()=>{
-            console.log('ok');
-        })
+        /// Pour créer donnée dans db
+      
+        // const r = new Recipe({name : "Demo", ingredients : ["mayo"]})
+        // r.save().then(()=>{
+        //     console.log('ok');
+        // })
+        ////
 
     })
     .catch((e)=>{
