@@ -7,14 +7,14 @@ class recipesClass{
   // added later
   ingredients = []
     
-  constructor(name, origin,time,description, [ingredients]){
+  constructor(name, origin,time,description, ingredients){
     this.name = name
     this.origin = origin
     this.time = time
     this.description = description
     
     // added later
-    this.ingredients.push(ingredients)
+    this.ingredients=ingredients
 
   }
 }
