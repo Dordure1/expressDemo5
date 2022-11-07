@@ -9,6 +9,7 @@ const homeController = {
      */
 
     index : (req, res)=> { 
+        console.log(req.session.userId);
         res.render('home/index')
     },
 

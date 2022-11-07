@@ -1,7 +1,11 @@
 require('dotenv-flow').config()
 
+const session = require("express-session")
+
+
+
 /// récupération variable d'environement
-const {NODE_ENV , PORT, URL_MONGODB} = process.env
+const {NODE_ENV , PORT, URL_MONGODB, SESSION_SECRETS} = process.env
 const exp = require('constants');
 const express = require('express');
 require('express-async-errors')
@@ -34,6 +38,11 @@ database(URL_MONGODB)
 
 const app = express()
 
+
+
+//// Session et coockie
+app.set('trust proxy', 1) // trust first proxy
+
 //////////////////////////////////////
 /// Configuration du serveur 
 
@@ -43,14 +52,28 @@ app.use(express.static('public'))
 //- gestion des formulaires
 app.use(express.urlencoded({extended:true}))
 
-/////////////////////////////////////
+/// Configuration des session ( coockies)
 
+app.use(session({
+    secret: SESSION_SECRETS,
+    resave: false,
+    saveUninitialized: true,
+    cookie : { httpOnly : true}
+  }))
+/////////////////////////////////////
 
 /// Config moteur de vue 
 app.set('view engine','ejs')
 
 /// pas besoin car dossier views est un mot clé reconnu
 app.set('views', 'views')
+
+
+/// Création d'un moddlware pour exposer la connextion de l'utilisateur 
+app.use((req,res,next)=>{
+    res.locals.isConnected = (req.session.userId !== undefined)
+    next()
+})
 
 
 

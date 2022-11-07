@@ -57,10 +57,28 @@ table {
     padding: 8px;
   
   }
-  
+
   
   tr:nth-child(even) {
   
     background-color: #dddddd;
   
   }
+  nav {
+    display: flex;
+}
+nav > ul:first-of-type {
+    flex-grow: 1;
+}
+nav > ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+nav > ul > li > a {
+    padding-right: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}

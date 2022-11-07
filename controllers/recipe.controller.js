@@ -9,6 +9,7 @@ const recipeController =  {
     index : async (req,res)=> {
 
         const recipes = await recipeService.getAll()
+        const count = recipes.length
 
         res.render('recipe/index',{recipes, count})
     },

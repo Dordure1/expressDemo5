@@ -9,5 +9,14 @@
     <title><%=process.env.TITLE_SITE %></title>
 </head>
 <body>
-    <nav></nav>
+    <nav>
+        <ul>
+            <% if(!isConnected){  %>
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/auth/register">Register</a></li>
+            <% } else { %>
+            <li><a href="/auth/logout">Logout</a></li>
+            <% } %>
+        </ul>
+    </nav>
     <main>
