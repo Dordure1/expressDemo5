@@ -3,6 +3,7 @@
 <h1>New recipe</h1>
 
 <h2>Add a new recipe</h2>
+<h3>Le nombre de recette </h3>
     <form method="post">
         <div>
             <label for="name">recipe name</label>
@@ -22,7 +23,33 @@
             <label for="description">description</label>
             <textarea id="description" name="description"></textarea>
         </div>
+
+        <div>
+            <label for="ingerdients">ingerdients</label>
+           
+            <div id="ingr">
+                <input type="text" name="ingredients">
+                <button id="addRow" type="button">add ingredient</button>
+             
+            </div>
+        </div>
         <button type="submit">Envoyer</button>
     </form>
+
+    <script>
+        const zoneInput = document.getElementById('ingr')
+        const btnAddRow = document.getElementById('addRow')
+        btnAddRow.addEventListener('click', () => {
+           
+            const addInput = document.createElement('input')
+           
+            addInput.setAttribute('name', 'ingredients')
+            addInput.setAttribute('type', 'text')
+
+            zoneInput.insertBefore(addInput,btnAddRow)
+        })
+
+
+    </script>
 
 <%- include('../shared/_footer.ejs') %>

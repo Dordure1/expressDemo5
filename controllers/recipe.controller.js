@@ -5,7 +5,8 @@ const recipes = []
 
 const recipeController =  {
     index : (req,res)=> {
-        res.render('recipe/index',{recipes})
+        const count = recipes.length
+        res.render('recipe/index',{recipes, count})
     },
     newRecipe: (req,res)=>{
         res.render('recipe/newRecipe')
