@@ -1,10 +1,31 @@
 require('dotenv-flow').config()
 
 /// récupération variable d'environement
-const {NODE_ENV , PORT} = process.env
+const {NODE_ENV , PORT, URL_MONGODB} = process.env
 const exp = require('constants');
 const express = require('express');
 const router = require('./routers');
+
+/// Connection à la db
+const database = require('./database');
+const Recipe = require('./models/recipe.model');
+database(URL_MONGODB)
+    .then((db)=>{
+        console.log('Mongo DB successfull');
+
+        const r = new Recipe({name : "Demo", ingredients : ["mayo"]})
+        r.save().then(()=>{
+            console.log('ok');
+        })
+
+    })
+    .catch((e)=>{
+        console.log((('conneciton error')));
+        console.log(e);
+
+        process.exit(1)
+    })
+
 
 const app = express()
 
